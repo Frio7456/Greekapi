@@ -17,5 +17,16 @@ namespace Greekapi
         public string id { get; set; }
         public string userid { get; set; }
         public string password { get; set; }
+
+        public static credential SetCredential(string Userid, string Password)
+        {
+            credential credential_ = new credential()
+            {
+                id = Guid.NewGuid().ToString().Remove('-'),
+                password = Password,
+                userid = Userid
+            };
+            return credential_;
+        }
     }
 }

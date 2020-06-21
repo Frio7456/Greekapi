@@ -21,12 +21,19 @@ namespace Greekapi
         public string surname { get; set; }
         public string age { get; set; }
         public string physicaladdress { get; set; }
-        public static Customer SetCustomer(string email, string firstname, string lastname, string cellnumber, string age, string paddress)
+        public static Customer SetCustomer(string email, string firstname, string lastname, string cellnumber, string Age, string paddress)
         {
             Customer customer = new Customer()
             {
-
-            }
+                userid = Guid.NewGuid().ToString().Remove('-'),
+                age = Age,
+                emailaddress = email,
+                msisdn = cellnumber,
+                name = firstname,
+                surname = lastname,
+                physicaladdress = paddress
+            };
+            return customer;
         }
     }
 }
